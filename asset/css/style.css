@@ -1,0 +1,102 @@
+body{
+	background-color: rgb(171,171,171);
+}
+.contener{
+	width:50%;
+	height: 90vh;
+	margin: auto;
+	background-color: rgb(170,203,204);
+	background-image: url("../img/Images/img-bg.jpg");
+	background-repeat: no-repeat;
+	
+}
+.haut{
+	width: 100%;
+	height: 10%;
+	background-color: rgb(5,36,38);
+}
+.text1{
+	position: absolute;
+	text-align: center;
+	color: white;
+	font-family: cursive;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+	margin-left: 18%;
+}
+/*.croix{
+	position: absolute;
+	margin-left: 280px;
+	margin-top: 20px;
+}*/
+.img1{
+	height:100%;
+	width: 5%;
+	display: block;
+	margin-left:5%;
+	float:left;
+	
+}
+.form{
+	width:50%;
+	height: 43vh;
+	margin: 0 auto;
+	background-color: rgb(242,242,242);
+	margin-top: 15vh;
+}
+.login_form{
+	width: 100%;
+	height: 25%;
+	background-color: rgb(81,191,208);
+}
+.log_form{
+	color:white;
+	margin-top:2%;
+	position: absolute;
+	margin-left: 2%;
+	font-family: cursive;
+}
+form input{
+	width: 90%;
+	height: 5vh;
+	margin-left: 5%;
+	margin-top: 5%;
+	background-color:rgb(240,238,241);
+}
+.icone1{
+	
+	margin-left: -5vh;
+	margin-top: 2%;
+
+}
+.icone2{
+	position: absolute;
+	margin-left: -5vh;
+	margin-top: 2%;
+}
+button{
+	width: 20vh;
+	height: 5vh;
+	margin-top: 5%;
+	margin-left: 5%;
+	background-color: rgb(81,191,208);
+	float: left;
+}
+.inscrire{
+	float: right;
+	margin-right: 10%;
+	color: grey;
+}
+a{
+	text-decoration: none;
+}
+p{
+	border:1px solid red;
+	background-color: red;
+	color: white;
+	text-align: center;
+}
+.error{
+	margin-top: 30px;
+}

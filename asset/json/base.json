@@ -1,0 +1,20 @@
+[
+  
+  {
+    "login": "admin1",
+    "password": "pass",
+    "prenom": "Abdoulaye",
+    "nom": "diouf",
+    "role": "admin",
+    "image": "laye.jpeg"
+  },
+  {
+    "login": "joueur2",
+    "prenom": "badou",
+    "nom": "diop",
+    "password": "pass",
+    "role": "joueur",
+    "image": "laye.jpeg"
+  }
+
+]
