@@ -8,11 +8,11 @@ if (isset($_POST['val'])) {
  			if ($_POST['log'] == $contenu[$i]['login'] && $_POST['pass']==$contenu[$i]['password']){
  				if ($contenu[$i]['role'] == "admin" )  {
  					$_SESSION['user'] =$contenu[$i];
- 					header('location:liste_quest.php');
+ 					header('location:src/liste_quest.php');
  				}
  				else{
  				$_SESSION['user'] =$contenu[$i];
- 				header('location:interface_joueur.php');
+ 				header('location:src/interface_joueur.php');
  				}
  			}
  			else{
@@ -46,7 +46,7 @@ if (isset($_POST['val'])) {
 					<input type="password" name="pass" placeholder="password" required>
 					<img class="icone2" src="asset/img/Images/Icones/ic-password.png">
 					<button type="submit" name="val"> Connexion</button>
-					<h6 class="inscrire"><a href="#"> S'inscrire pour jouer? </a></h6>
+					<h6 class="inscrire"><a href="src/inscription.php"> S'inscrire pour jouer? </a></h6>
 				</form>
 			</div>
 			</div>

@@ -73,3 +73,55 @@ a{
 	background-color: white;
 	margin-left: 2.5%;
 }
+.gamingzone{
+	float: left;
+	margin: 1%;
+	background-color: violet;
+	width: 60%;
+	height: 95%;
+
+}
+.affichage{
+	float: left;
+	margin-top: 1%;
+border-radius: ;
+	width: 37%;
+	height: 80%;
+}
+
+
+#d1 {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#d2 {
+    background-color: rgb(241, 235, 235);
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+}
+
+#togg1 {
+    color: #818181;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+
+#togg2 {
+    color: #3ebedf;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background-color: rgb(241, 235, 235);
+}
+.meilleur{
+	width: 25%;
+	float: left;
+	background-color: blue;
+}
