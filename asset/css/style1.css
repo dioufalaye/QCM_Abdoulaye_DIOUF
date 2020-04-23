@@ -57,6 +57,7 @@ button{
 	margin-left: 2.5%;
 	height: 420px;
 	background-color: rgb(242,242,242);
+	
 }
 .form1{
 	float: left;
@@ -68,7 +69,8 @@ button{
 	float: right;
 	width: 60%;
 	height: 350px;
-	background-color: grey;
+	background-color: white;
+	border-radius: 3%;
 }
 .profil{
 	width: 100%;

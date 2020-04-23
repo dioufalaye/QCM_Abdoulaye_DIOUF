@@ -101,7 +101,21 @@ echo "dollar";
         preg_match_all('#[a-z]([^.!?]|([.][0-9]))*[.?!]#i' ,$texte,$phrases);
         return $phrases;
     }
-   
+   function loginexistant($login,$tab)
+   {
+    
+        $resultat=false;
+            foreach ($tab as $key=>$value)  
+            {
+                    if($_POST['login']==$value['login'])
+                    {
+                       $resultat=true;
+                       return $resultat;
+                    }
+
+           }  
+           return $resultat;      
+    }
 
    
     

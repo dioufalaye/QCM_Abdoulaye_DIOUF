@@ -7,7 +7,7 @@
     if (  
     Maj($_POST['prenom'])  &&  Maj($_POST['nom']) &&
         verif_alphaNum($_POST['pass']) &&  verif_alphaNum($_POST['passbi']) && verif_alphaNum($_POST['pass'])==verif_alphaNum($_POST['passbi']) 
-        && verif_alphaNum($_POST['login'])  ) 
+        && verif_alphaNum($_POST['login']) && strlen($_POST['login'])>2  ) 
         { 
 
             // proccessus chargement image
@@ -53,13 +53,11 @@
             $tab=file_get_contents('../asset/json/base.json');
             $tab=json_decode($tab, true);
            
-           
-        foreach ($tab as $key=>$value)  
-        {
-                if($_POST['login']==$value['login'])
-                {
-                    echo " ce Login existe deja";
-                }
+           if(loginexistant($_POST['login'],$tab))
+           {
+               echo "ce login existe dejas";
+           }
+       
                 else{
                     $newgamer['prenom']=Maj($_POST['prenom']);
                     $newgamer['nom']=Maj($_POST['nom']);
@@ -73,8 +71,7 @@
                     header('location:../index.php');
                     exit();
                 }
-            }
-           }
+        }
 
            elseif( !Maj($_POST['prenom'])  ||  !Maj($_POST['nom']))
            {

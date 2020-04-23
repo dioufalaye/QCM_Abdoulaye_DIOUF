@@ -37,11 +37,11 @@ if (!isset($_SESSION['user']['login'])) {
 					
 					<a href="liste_quest.php?lien=1"><label class="i"><i class="d"></i>Liste Questions</label><img src="../asset/img/Icones/ic-liste-active.png" alt="" class="im"></a><br><br>
 					
-					<a href="liste_quest.php?lien=2"><label class="i"><i class="d"></i>Créer Admin</label><img src="../asset/img/Icones/ic-ajout.png" alt="" class="im"></a><br><br>
+					<a href="liste_quest.php?lien=2"><label class="i"><i class="d"></i>Cr&eacute;er Admin</label><img src="../asset/img/Icones/ic-ajout.png" alt="" class="im"></a><br><br>
 					
 					<a href="liste_quest.php?lien=3"><label class="i"><i class="d"></i>Liste joueurs</label><img src="../asset/img/Icones/ic-liste.png" alt="" class="im"></a><br><br>
 					
-					<a href="liste_quest.php?lien=4"><label class="i"><i class="d"></i>Créer Questions</label><img src="../asset/img/Icones/ic-ajout.png" alt="" class="im"></a><br>
+					<a href="liste_quest.php?lien=4"><label class="i"><i class="d"></i>Cr&eacute;er Questions</label><img src="../asset/img/Icones/ic-ajout.png" alt="" class="im"></a><br>
 				</div>
 			</div>
 			<div class="form2">

@@ -53,12 +53,10 @@
             $tab=json_decode($tab, true);
         
            
-        foreach ($tab as $key=>$value)  
-        {
-                if($_POST['login']==$value['login'])
-                {
-                    echo " ce Login existe deja";
-                }
+            if(loginexistant($_POST['login'],$tab))
+            {
+                echo "ce login existe dejas";
+            }
                 else{
                     $newgamer['prenom']=Maj($_POST['prenom']);
                     $newgamer['nom']=Maj($_POST['nom']);
@@ -73,7 +71,7 @@
                     exit();
                 }
             }
-           }
+           
 
            elseif( !Maj($_POST['prenom'])  ||  !Maj($_POST['nom']))
            {
@@ -87,8 +85,8 @@
            }
            
            
-          
-        }         
+        } 
+             
          
 ?>
     <style>
