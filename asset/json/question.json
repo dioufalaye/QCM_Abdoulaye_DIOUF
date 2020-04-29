@@ -1,0 +1,41 @@
+[
+  {
+    "question": "qui est le president de la rep du senegal ?",
+    "nbr": "4",
+    "choix": "texte",
+    "Reponse": ["macky sall"]
+  },
+  {
+    "question": null,
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": { "1": "ebola", "2": "corona" },
+    "Vrai": { "2": "on" }
+  },
+  {
+    "question": null,
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": { "1": "ebola", "2": "corona" },
+    "Vrai": { "2": "on" }
+  },
+  {
+    "question": "OU se trouve SA.",
+    "nbr": "10",
+    "choix": "simple",
+    "Reponse": { "1": "DAKAR", "2": "THIES", "3": "TAMBA" },
+    "Vrai": { "1": "1" }
+  },
+  {
+    "question": "ou se trouve Madagascar?",
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": {
+      "1": "Europe",
+      "2": "Amerique",
+      "3": "Afrique",
+      "4": "Oceanie"
+    },
+    "Vrai": { "3": "3" }
+  }
+]

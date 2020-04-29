@@ -124,7 +124,6 @@
         .label{
             margin-left: 5%;
             font-size: xx-large;
-
         }
         .prenom
             {
