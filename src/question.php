@@ -24,7 +24,8 @@
    <form action="" id="form_quest" method="POST">
         <div class="question">
             <label for="">Question</label>
-            <textarea name="question" id="" style="height: 30px; width:80%;"></textarea>
+            <textarea name="question" id="question" style="height: 30px; width:80%;"></textarea>
+            <span id="missQuestion"></span>
         </div>
         <div class="nbrpoint">
 
@@ -66,7 +67,7 @@
                 
         </div>
            
-         <button type="submit" class="btn" name="btn" onclick="getValue();" >Enregistrer</button>
+         <button type="submit" class="btn" name="btn"  >Enregistrer</button>
 
    </form>
 </div>
@@ -92,7 +93,8 @@
         
        if (choix==="simple") {
         newInput.innerHTML=`<label for="">Reponse${nbr_row}</label>
-                    <input type="text" name="Reponse[${indice}]" id="Reponse${nbr_row}" class="rep"               >
+                    <input type="text" name="Reponse[${indice}]" id="Reponse${nbr_row}" class="rep" erreur="eurreur${nbr_row}">
+                    <span id="eurreur${nbr_row}"></span>
                     <input type="radio" name="Vrai[${indice}]" id="maReponse" value="${indice}"  >
                     <button type="button" onclick="suprimeInput(${nbr_row});" >
                         <img src="../asset/img/Icones/ic-supprimer.png" alt="IMAGEHOLDER"> 
@@ -102,7 +104,8 @@
                    
        }else if (choix==="multiple") {
         newInput.innerHTML=`<label for="">Reponse${nbr_row}</label>
-                    <input type="text" name="Reponse[${indice}]" id="Reponse${nbr_row}" class="rep" >
+                    <input type="text" name="Reponse[${indice}]" id="Reponse${nbr_row}" class="rep" erreur="eurreur${nbr_row}" >
+                    <span id="eurreur${nbr_row}"></span>
                     <input type="checkbox" name="Vrai[${indice}]" id="maReponse"    value="${indice}"  >
                     <button type="button" onclick="suprimeInput(${nbr_row});" >
                         <img src="../asset/img/Icones/ic-supprimer.png" alt="IMAGEHOLDER"> 
@@ -111,24 +114,56 @@
                    
        }else{
         newInput.innerHTML=`<label for="">Reponse${nbr_row}</label>
-                    <input type="text"name="Reponse[]" id="Reponse${nbr_row}" class="rep">
+                    <input type="text"name="Reponse[]" id="Reponse${nbr_row}" class="rep" erreur="eurreur${nbr_row}">
+                    <span id="eurreur${nbr_row}"></span>
     `;
                     document.getElementById('ajout').disabled=true;
-       }
-    
-       
-        inputs.appendChild(newInput);
-        
+       } 
+        inputs.appendChild(newInput);    
     }
+    ///fonction pour suppression
     function suprimeInput(n){
        var sup=document.getElementById('row_'+n);
        sup.remove();
     }
-     function getValue()
-     {  var tableau=document.getElementsByClassName('rep');
-        var longeur=tableau.length;
-        alert(longeur);
-        var donnees=document.getElementsByTagName('input');
-         
-     } 
+     /*
+        validation 
+     */ 
+    var formul=document.getElementById('form_quest');
+
+       
+    formul.addEventListener('submit',function(e){
+       
+        var Question=document.getElementById('question');
+     
+        if(Question.value.trim()=="")
+        {  
+            var missQuestion=document.getElementById('missQuestion');
+            missQuestion.innerHTML="Une question est requise";
+            e.preventDefault(); 
+            missQuestion.style.color="red";  
+        }
+        
+        var inputs=document.getElementsByClassName('rep');
+        var erreur=false;
+        for(input of inputs)
+        {
+            if(input.hasAttribute("erreur"))
+            {
+                idSpanErreur=input.getAttribute("erreur");
+                if(!input.value)
+                {
+                
+                    document.getElementById(idSpanErreur).innerHTML="Ce champs est obligatoire";
+                }
+                erreur=true;
+            }
+        }
+        if(erreur)
+        {
+            e.preventDefault();
+        }
+    }
+    )
+
 </script>
