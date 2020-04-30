@@ -1,8 +1,15 @@
 <?php
 session_start();
-if (!isset($_SESSION['user']['login'])) {
-	header('location:../index.php');
-}
+	if (!isset($_SESSION['user']['login'])) 
+	{
+		header('location:../index.php');
+		exit();
+	}
+	$elementByPage=$_POST['elementsByPage'];
+	$messages = file_get_contents('../asset/json/question.json');
+	$messages = json_decode($messages, true);
+	$_SESSION['quiz']=array_rand($messages, 5);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +40,11 @@ if (!isset($_SESSION['user']['login'])) {
 			<div style="float: right;margin-top: -40px"><button><a href="logout.php"> Deconnexion</a></button></div>
 		</div>
 		<div class="form">
-			<div class="gamingzone"></div>
+			<div class="gamingzone">
+				
+				<div class="partKest"></div>
+				<div class="parRepon"></div>
+			</div>
 			<div class="affichage">
 				<button id="togg1">Top Score</button>
 				<button id="togg2">Meilleur Score</button>

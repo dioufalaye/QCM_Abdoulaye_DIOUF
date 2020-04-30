@@ -7,10 +7,10 @@
         
         height: 10%;
     }
-    .nbrquestion{
+    .nbrquestion
+    {
         width: 40px;
        
-
     }
     .affichage{
         

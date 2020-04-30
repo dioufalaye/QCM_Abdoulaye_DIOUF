@@ -1,1 +1,34 @@
-[{"question":"Qui est le premier president du senegal","nbr":"1","choix":"texte","Reponse":["Senghor"]},{"question":"Ou se trouve la tour eiffel","nbr":"7","choix":"multiple","Reponse":{"1":"DAKAR","2":"paris","3":"france"},"Vrai":{"2":"2","3":"3"}},{"question":"OU se trouve quantanamo?","nbr":"1","choix":"simple","Reponse":{"1":"FRANCE","2":"ALLEMAGNE","3":"US","4":"CANADA"},"Vrai":["3"]},{"question":"ou se trouve Madagascar?","nbr":"1","choix":"simple","Reponse":{"1":"Europe","2":"Amerique","3":"Afrique","4":"Oceanie"},"Vrai":{"3":"3"}}]
+[
+  {
+    "question": "Qui est le premier president du senegal",
+    "nbr": "1",
+    "choix": "texte",
+    "Reponse": ["Senghor"]
+  },
+  {
+    "question": "Ou se trouve la tour eiffel",
+    "nbr": "7",
+    "choix": "multiple",
+    "Reponse": { "1": "DAKAR", "2": "paris", "3": "france" },
+    "Vrai": { "2": "2", "3": "3" }
+  },
+  {
+    "question": "OU se trouve quantanamo?",
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": { "1": "FRANCE", "2": "ALLEMAGNE", "3": "US", "4": "CANADA" },
+    "Vrai": ["3"]
+  },
+  {
+    "question": "ou se trouve Madagascar?",
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": {
+      "1": "Europe",
+      "2": "Amerique",
+      "3": "Afrique",
+      "4": "Oceanie"
+    },
+    "Vrai": { "3": "3" }
+  }
+]

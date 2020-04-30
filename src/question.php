@@ -76,6 +76,7 @@
     var nbr_row=0;
     var indice=0;
     function monchoix(){
+        document.getElementById('ajout').disabled=false;
         document.getElementById('inputs').innerHTML="";
         nbr_row=0;
     }
@@ -141,8 +142,7 @@
             missQuestion.innerHTML="Une question est requise";
             e.preventDefault(); 
             missQuestion.style.color="red";  
-        }
-        
+        }  
         var inputs=document.getElementsByClassName('rep');
         var erreur=false;
         for(input of inputs)
@@ -158,8 +158,6 @@
                 erreur=true;
             }
         }
-        
-        
     }
     )
 
