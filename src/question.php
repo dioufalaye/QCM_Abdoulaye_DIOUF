@@ -1,23 +1,22 @@
 <?php
-
-
-
-    if (!empty($_POST)) 
+    if(isset($_POST['btn']))
     {
-		$tab=[];
-		unset($_POST['btn']);
-        $tab=$_POST;    
-        $data=file_get_contents('../asset/json/question.json');
-        $data=json_decode($data,true);	
-        $data[]=$tab;
-        $data=json_encode($data) ;
-        file_put_contents('../asset/json/question.json',$data);
-    }
-    else
-    {
-        echo "tous les champs sont obligatoire";
-    }
-				
+        if ( !empty($_POST['question']) && !empty($_POST['Reponse']) )
+        {
+            $tab=[];
+            unset($_POST['btn']);
+            $tab=$_POST;    
+            $data=file_get_contents('../asset/json/question.json');
+            $data=json_decode($data,true);	
+            $data[]=$tab;
+            $data=json_encode($data) ;
+            file_put_contents('../asset/json/question.json',$data);
+        }
+        else
+        {
+            echo "tous les champs sont obligatoire";
+        }
+    }               
 
 ?>
 <div class="questionnaire">
@@ -95,7 +94,7 @@
         newInput.innerHTML=`<label for="">Reponse${nbr_row}</label>
                     <input type="text" name="Reponse[${indice}]" id="Reponse${nbr_row}" class="rep" erreur="eurreur${nbr_row}">
                     <span id="eurreur${nbr_row}"></span>
-                    <input type="radio" name="Vrai[${indice}]" id="maReponse" value="${indice}"  >
+                    <input type="radio" name="Vrai[]" id="maReponse" value="${indice}"  >
                     <button type="button" onclick="suprimeInput(${nbr_row});" >
                         <img src="../asset/img/Icones/ic-supprimer.png" alt="IMAGEHOLDER"> 
                     </button>`;
@@ -153,16 +152,14 @@
                 idSpanErreur=input.getAttribute("erreur");
                 if(!input.value)
                 {
-                
+                    e.preventDefault;
                     document.getElementById(idSpanErreur).innerHTML="Ce champs est obligatoire";
                 }
                 erreur=true;
             }
         }
-        if(erreur)
-        {
-            e.preventDefault();
-        }
+        
+        
     }
     )
 

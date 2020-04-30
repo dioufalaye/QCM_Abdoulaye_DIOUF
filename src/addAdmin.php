@@ -67,7 +67,7 @@
                     $tab[]=$newgamer;
                     $tab=json_encode($tab);
                     file_put_contents('../asset/json/base.json',$tab);
-                    header('location:../index.php');
+                    // header('location:../index.php');
                     exit();
                 }
             }
@@ -151,8 +151,7 @@
    <div class="container">
        <div class="cadre">
            <div class="gauche">
-               <strong style="margin-left: 2vw"> S'INSCRIRE</strong><br>
-        <h5 style="margin-left: 2vw;margin-top: 0vw;opacity: 0.5;font-size: 10px" >Pour tester votre niveau de culture générale</h5>
+               <strong style="margin-left: 2vw"> Ajouter Admin</strong><br>
            <form action="" class="adherer" enctype="multipart/form-data" id="formul" method="POST">
                         <label for="">Prenom</label><br>
                         <input type="text" placeholder="Aaaa" name="prenom" class="prenom" id="pren" style="margin-left: 2vw" >
