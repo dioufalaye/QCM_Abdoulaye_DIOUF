@@ -5,11 +5,8 @@ session_start();
 		header('location:../index.php');
 		exit();
 	}
-	$elementByPage=$_POST['elementsByPage'];
-	$messages = file_get_contents('../asset/json/question.json');
-	$messages = json_decode($messages, true);
-	$_SESSION['quiz']=array_rand($messages, 5);
-
+	
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +19,7 @@ session_start();
 			border: solid 2px blueviolet;
 			width: 50%;
 			background-color: blue;
+
     	}
 </style>
 </head>
@@ -42,12 +40,11 @@ session_start();
 		<div class="form">
 			<div class="gamingzone">
 				
-				<div class="partKest"></div>
-				<div class="parRepon"></div>
+				<?php  require_once('jouer.php') ?>
 			</div>
 			<div class="affichage">
-				<button id="togg1">Top Score</button>
-				<button id="togg2">Meilleur Score</button>
+				<button id="togg1" style="width: 30%;">Top Score</button>
+				<button id="togg2" style="width: 30%;">Meilleur Score</button>
 				<div id="d1">
 					<p>Top Score</p>
 				</div>

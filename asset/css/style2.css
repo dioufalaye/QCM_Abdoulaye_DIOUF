@@ -82,9 +82,9 @@ a{
 
 }
 .affichage{
-	float: left;
+	float: right;
 	margin-top: 1%;
-border-radius: ;
+	border-radius: 2px ;
 	width: 37%;
 	height: 80%;
 }

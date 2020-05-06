@@ -30,5 +30,48 @@
       "4": "Oceanie"
     },
     "Vrai": { "3": "3" }
+  },
+  {
+    "question": "qui est le president de la Russie?",
+    "nbr": "8",
+    "choix": "simple",
+    "Reponse": {
+      "4": "Macron",
+      "5": "Poutine",
+      "6": "Erdogane",
+      "7": "Merkel"
+    },
+    "Vrai": ["5"]
+  },
+  {
+    "question": "Ou se trouve le kremelin ?",
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": {
+      "1": "Allemagne",
+      "2": "France ",
+      "3": "Russie",
+      "4": "SENEGAL"
+    },
+    "Vrai": ["3"]
+  },
+  {
+    "question": "Qui est le president de la Gambie?",
+    "nbr": "1",
+    "choix": "texte",
+    "Reponse": ["Adama barro"]
+  },
+  {
+    "question": null,
+    "nbr": "1",
+    "choix": "simple",
+    "Reponse": { "1": "10GB", "2": "60GB", "3": "12GB" },
+    "Vrai": ["2"]
+  },
+  {
+    "question": "Comment s'appelle le petit du lion ?",
+    "nbr": "7",
+    "choix": "texte",
+    "Reponse": ["Lionceau"]
   }
 ]

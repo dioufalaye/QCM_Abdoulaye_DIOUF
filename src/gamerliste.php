@@ -8,7 +8,7 @@
        
     }
 </style>
-<div class="liste">
+<div class="liste" style="  overflow: scroll;">
 <?php 
      $messages = file_get_contents('../asset/json/score.json');
      $messages = json_decode($messages, true);
@@ -61,9 +61,9 @@
                  {
                  break;
                  }
-                 ?><td class="score"><?php echo $_SESSION['meilleur'][$j]['prenom'] ?></td><?php
-                 ?><td class="score"><?php echo $_SESSION['meilleur'][$j]['nom'] ;?></td><?php
-                 ?><td class="score"><?php echo $_SESSION['meilleur'][$j]['score']."points" ;?></td><?php
+                 ?><td class="score"><?php echo $_SESSION['meilleur'][$j]['prenom'] ?></td>
+                 <td class="score"><?php echo $_SESSION['meilleur'][$j]['nom'] ;?></td>
+                 <td class="score"><?php echo $_SESSION['meilleur'][$j]['score']."points" ;?></td><?php
 
                 
                 echo '<br>';
