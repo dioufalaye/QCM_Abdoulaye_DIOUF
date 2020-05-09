@@ -16,14 +16,6 @@
     "image": "laye.jpeg"
   },
   {
-    "prenom": "Geographe",
-    "nom": "Geographe",
-    "login": "geographe",
-    "password": "geographe",
-    "role": "joueur",
-    "image": null
-  },
-  {
     "prenom": "Amina",
     "nom": "Amina",
     "login": "amina",
@@ -31,14 +23,7 @@
     "role": "joueur",
     "image": null
   },
-  {
-    "prenom": "Papedjiby",
-    "nom": "Fall",
-    "login": "aminata",
-    "password": "marier",
-    "role": "joueur",
-    "image": "5.png"
-  },
+
   {
     "prenom": "Lamine",
     "nom": "Lamine",
@@ -48,10 +33,10 @@
     "image": "1.jpg"
   },
   {
-    "prenom": "Saint ",
-    "nom": "Saint",
-    "login": "saint",
-    "password": "saint",
+    "prenom": "Ami",
+    "nom": "Ba",
+    "login": "joueur",
+    "password": "joueur",
     "role": "joueur",
     "image": "5.png"
   },
@@ -135,12 +120,13 @@
     "role": "admin",
     "image": "testim.jpg"
   },
+ 
   {
-    "prenom": "Demba guisse",
-    "nom": "Guisse",
-    "login": "foul",
-    "password": "foul",
+    "prenom": "Code",
+    "nom": "Fall",
+    "login": "admin",
+    "password": "admin",
     "role": "admin",
-    "image": null
+    "image": "laye.jpeg"
   }
 ]

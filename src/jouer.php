@@ -1,40 +1,60 @@
 <?php 
+    if(isset($_POST['terminer']))
+    {
+        
+        header('location:resultat.php');
+        exit();
+    
+    }
+    
 
-
+    if(!isset($_SESSION['myscore']))
+    {
+        
+        $_SESSION['myscore']=0;
+    }
     if (empty($_SESSION['donnee'] )) {
+        $_SESSION['j']=0;
         //nombre de question fixer par l'adminnnnnnn-------------------------
         $tab=file_get_contents('../asset/json/NbreQuestion.json');
         $tab=json_decode($tab, true);
         $_SESSION['nombreQuestion']=$tab['NumberOfQuestion'];
 
+
         //listedes question decodee----------------------------------------------    
         $messages = file_get_contents('../asset/json/question.json');
         $_SESSION['donnee'] = json_decode($messages, true);
+        
     }
-    if(isset($_POST['suivant']))
+    if(isset($_POST['suivant']) || isset($_POST['terminer']) )
     {
-        //var_dump($_SESSION['donnee'][$_POST['l']]);
+       if(isset($_POST['rep']))
+       {
+            
          $_SESSION['donnee'][$_POST['l']]['reJoueur']= $_POST['rep'];
-        var_dump($_SESSION['donnee'][$_POST['l']]);
-
-    //    die();
-
-       /*
-        unset($_POST['suivant']);
-        $_SESSION['recup'][$l]=$_POST;
-        	
-        $data[]=$_SESSION['recup'][$l];
-        $data=json_encode($data) ;
-        file_put_contents('../asset/json/tempon.json',$data);
-        */
+        // echo "votre score est".$_SESSION['myscore'];
+       
+         //var_dump($_SESSION['donnee'][$_POST['l']]);
+        // var_dump($_SESSION['MesBonnesRep']);
+       
+ 
+       }
+     //var_dump( $_SESSION['tableaubi']);
     }
+
+    //
+   
+   
+
+   
+    
     
 
 
 ?>
 <style>
     .gaming{
-        background-color: red;
+        background-color: lightskyblue;
         width: 100%;
         height: 100%;
         border-radius: 3%;
@@ -74,7 +94,14 @@
         <?php  if(isset($_POST['demare']))
         {
             $_SESSION['quiz']=array_rand($_SESSION['donnee'], $_SESSION['nombreQuestion'] );
-
+            ?> <button name="quitter" value="" type="submit"  style=' margin-left: 40%; background-color: red; ' id="quitter" >Quitter</button>
+             <?php
+            $_SESSION[' resultats']=[];
+            $_SESSION['MesBonnesRep']=array();
+            $indice1=0;
+            $_SESSION['MesFausseRep']=array();
+            $indice2=0;
+           
         }
         ?>
     </form>
@@ -113,51 +140,114 @@
                                  $debut=0;
                                   $fin=1;
                              }
-                                $_SESSION['tesChoix']=[];
+                             $_SESSION['j']=$debut+1;
+                                $_SESSION['monscore']=0;
                                 
-                                   
+                                         
                         for ($i=$debut; $i <$fin ; $i++)
                         {
                             if ($i<=count($_SESSION['quiz'])) 
                             {
                                
                                
-                                
+                                $jj=$i+1;
                                 $k=0;
                                 $l=$_SESSION['quiz'][$i];
-                                $j=$i+1;
+                               
                              echo'   <div class="partquest"><div class="entete">';
-                                echo "QUESTION"."<span class='blan' style='background-color:white; '>".$j."/".$_SESSION['nombreQuestion']."</span>"; 
+                                echo "QUESTION"."<span class='blan' style='background-color:white; '>".$jj."/".$_SESSION['nombreQuestion']."</span>"; 
                                 echo "<br>";
                                   echo $_SESSION['donnee'][$l]['question'];
                                   ?></div><div class="repondeur"><br><?php
                                   echo '<input type="number" name = "l" value="'.$l.'">';
+                                  echo $_SESSION['monscore'];
                                      if ($_SESSION['donnee'][$l]['choix'] == "texte") {
                                         if (isset($_SESSION['donnee'][$l]['reJoueur'])) {
-                                           echo '<input type="text" value="'.$_SESSION['donnee'][$l]['reJoueur'][0].'" name="rep">';
+                                           echo' <input type="hidden" name="choice" value="texte">';
+                                           echo '<input type="text" value="'.$_SESSION['donnee'][$l]['reJoueur'].'" name="rep">';
+                                           if(in_array($_SESSION['donnee'][$l]['reJoueur'],$_SESSION['donnee'][$l]['Reponse']))
+                                           {
+                                            $_SESSION['donnee'][$l]['Qualite']="vrai";
                                             
+                                            $_SESSION['myscore']+=$_SESSION['donnee'][$l]['nbr'];
+                                            echo "votre score est".$_SESSION['myscore'];
+                                           } 
+                                           else
+                                           {
+                                            $_SESSION['donnee'][$l]['Qualite']="faux";
+                                            echo "faux";
+                                           }   
                                         }else{
                                             echo '<input type="text" name="rep">';
+                                            $_SESSION['donnee'][$l]['Qualite']="faux";
+                                            
                                         }
+                                        
                                          
                                      }else if($_SESSION['donnee'][$l]['choix'] == "simple"){
-                                        foreach ($_SESSION['donnee'][$l]['Reponse'] as $key => $value) {
-                                             if (isset($_SESSION['donnee'][$l]['reJoueur'][0]) && $key == $_SESSION['donnee'][$l]['reJoueur'][0]) {
-                                               echo $value .'<input type="radio" value="'.$key.'" name=rep checked>';
-                                             }else{
-                                                echo $value .'<input type="radio" value="'.$key.'" name=rep>'; 
+                                        echo' <input type="hidden" name="choice" value="simple">';
+                                        foreach ($_SESSION['donnee'][$l]['Reponse'] as $key => $value)
+                                         {
+                                             
+                                             if (isset($_SESSION['donnee'][$l]['reJoueur'][0]) && $key == $_SESSION['donnee'][$l]['reJoueur'][0]) 
+                                             {
+                                                echo $value .'<input type="radio" value="'.$key.'" name=rep checked><br>';
+                                                
+                                               if(in_array($key,$_SESSION['donnee'][$l]['Vrai']))
+                                               {
+                                                $_SESSION['donnee'][$l]['Qualite']="vrai";         
+                                                $_SESSION['myscore']+=$_SESSION['donnee'][$l]['nbr'];
+                                                echo "votre score est".$_SESSION['myscore'];
+                                                }
+                                                 else
+                                                {
+                                                    $_SESSION['donnee'][$l]['Qualite']="faux"; 
+                                                }
+                                             }
+                                             else{
+                                               
+                                                echo $value .'<input type="radio" value="'.$key.'" name=rep><br>'; 
+                                                $_SESSION['donnee'][$l]['Qualite']="faux";
+                                               
                                              } 
                                         }
-                                         
-                                     }else{
+                                        
+                                     }
+                                     else{
+                                        echo' <input type="hidden" name="choice" value="multiple">';
                                         foreach ($_SESSION['donnee'][$l]['Reponse'] as $key => $value) {
+                                            
                                             if (isset($_SESSION['donnee'][$l]['reJoueur']) && in_array($key,$_SESSION['donnee'][$l]['reJoueur'])) {
-                                              echo $value .'<input type="checkbox" value="'.$key.'" name=rep[] checked>';
-                                            }else{
-                                               echo $value .'<input type="checkbox" value="'.$key.'" name=rep[]>'; 
+                                              echo $value .'<input type="checkbox" value="'.$key.'" name=rep[] checked><br>';
+                                              $m=count($_SESSION['donnee'][$l]['Vrai']);
+                                              $n=$m;
+                                              $sa=count($_SESSION['donnee'][$l]['reJoueur']);
+                                              if($m==$sa)
+                                              {
+                                                foreach ( $_SESSION['donnee'][$l]['reJoueur']as $key => $value) 
+                                                {    
+                                                  if(in_array($value,$_SESSION['donnee'][$l]['Vrai']))
+                                                  {
+                                                    $n--;
+                                                  }                                                
+                                                }
+                                                
+                                              }
+                                              if($n==0 && $m==$sa )
+                                                { echo "yes";
+                                                    $_SESSION['donnee'][$l]['Qualite']="vrai";
+                                                    $_SESSION['myscore']+=$_SESSION['donnee'][$l]['nbr']; 
+                                                    echo "votre score est".$_SESSION['myscore'];
+                                                }
+                                                else{ $_SESSION['donnee'][$l]['Qualite']="faux";}
+                                            }
+                                            else{
+                                               
+                                               echo $value .'<input type="checkbox" value="'.$key.'" name=rep[]><br>'; 
+                                               $_SESSION['donnee'][$l]['Qualite']="faux";
                                             } 
                                        }
-
+                                      
                                      }
 
 
@@ -188,16 +278,73 @@
                      <?php    }
          ?>
                </table>
-               
+          
     </form>
    
 </div>
-<?php
-     $_SESSION['recup']=[];
-     $data=file_get_contents('../asset/json/tempon.json');
-     $data=json_decode($data,true);
+<?php 
+   if(isset($_POST['precedent']))
+   {
+       $periode=$_SESSION['quiz'][$i];
+       echo "la page est ". $periode;
+       $_SESSION['myscore']-=$_SESSION['donnee'][$periode]['nbr'];
+   }
+/*
+ if(isset($_POST['terminer']))
+ {
+     $_SESSION['resultats']=0;
+     $nbrvrai=0;
+   for ($i=0; $i<count($_SESSION['quiz']) ; $i++) 
+   { 
+       if($_SESSION['donnee'][$l]['Qualite']=="vrai")
+       {
+           $_SESSION['resultats']+=$_SESSION['donnee'][$l]['nbr'];
+           $nbrvrai++;
+       }
+       
+   }  echo $_SESSION['resultats'];
+    echo  "<BR>nombre de vrairepest".$nbrvrai;
+
+ }*/
+ $j=$_SESSION['j']-2;
+ 
+ if(isset($_POST['suivant']) || isset($_POST['terminer']) )
+ {
+    if(isset($_POST['rep']))
+    {
+         
+     // $_SESSION['donnee'][$_POST['l']]['reJoueur']= $_POST['rep'];
+     // echo "votre score est".$_SESSION['myscore'];
+    
+      //var_dump($_SESSION['donnee'][$_POST['l']]);
+     // var_dump($_SESSION['MesBonnesRep']);
+     if(isset($_POST['choice']))
+     {
+         if($_POST['choice']=="texte")
+        {
+            $_SESSION['tableaubi'][$j]=$_SESSION['donnee'][$_POST['l']]['reJoueur'];            
+        }
+        //
+        if($_POST['choice']=="simple")
+        {
+            $_SESSION['tableaubi'][$j]=$_SESSION['donnee'][$_POST['l']]['reJoueur'];            
+        }
+        else
+        {
+            $_SESSION['tableaubi'][$j]=$_SESSION['donnee'][$_POST['l']]['reJoueur'];            
+        }
+        var_dump($_SESSION['tableaubi']);
+        echo "essss";
+        var_dump($j);
+    }
+        
+    }
+ 
+ }
+
 
 ?>
+
 <script>
     
     
@@ -230,7 +377,7 @@
     var demar=document.getElementById('demar');
     demar.addEventListener('submit',function(e)
     {
-        var demarer=document.getElementById('demarer');
+        var demarer=document.getElementById('demarer').remove(();
         function suprimeInput('demarer'){
        var sup=document.getElementById('demarer');
        sup.remove();
