@@ -46,7 +46,7 @@ session_start();
 				<button id="togg1" style="width: 30%;">Top Score</button>
 				<button id="togg2" style="width: 30%;">Meilleur Score</button>
 				<div id="d1">
-					<p>Top Score</p>
+					<p><?php if(!empty($_SESSION['SCOREBI'])){echo $_SESSION['SCOREBI'];}else {echo 0;} ?></p>
 				</div>
 				<div id="d2">
 					<p>Meilleur Score</p>
